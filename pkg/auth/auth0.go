@@ -265,18 +265,8 @@ func (a *Auth0Client) startCallbackServer(ctx context.Context) (string, string, 
 			return
 		}
 		
-		// Send success response
-		w.Header().Set("Content-Type", "text/html")
-		w.WriteHeader(http.StatusOK)
-		w.Write([]byte(`
-			<html>
-				<head><title>Authentication Successful</title></head>
-				<body>
-					<h1>Authentication Successful!</h1>
-					<p>You can now close this browser window and return to the CLI.</p>
-				</body>
-			</html>
-		`))
+		// Redirect to success page
+		http.Redirect(w, r, "https://aphelion.exmplr.ai/auth/success", http.StatusFound)
 		
 		codeChan <- code
 		stateChan <- state
