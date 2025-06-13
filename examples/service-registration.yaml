@@ -1,0 +1,180 @@
+openapi: 3.0.0
+info:
+  title: Weather API
+  version: 1.0.0
+  description: A comprehensive weather service API for getting current weather and forecasts
+  contact:
+    name: Weather API Support
+    url: https://weatherapi.com/support
+    email: support@weatherapi.com
+servers:
+  - url: https://api.weatherapi.com/v1
+    description: Production server
+paths:
+  /weather:
+    get:
+      summary: Get current weather
+      description: Get current weather conditions for a specific location
+      operationId: getCurrentWeather
+      parameters:
+        - name: location
+          in: query
+          required: true
+          description: City name, coordinates (lat,lon), or location query
+          schema:
+            type: string
+            example: "San Francisco"
+        - name: units
+          in: query
+          required: false
+          description: Units for temperature (metric, imperial, kelvin)
+          schema:
+            type: string
+            enum: [metric, imperial, kelvin]
+            default: metric
+      responses:
+        '200':
+          description: Current weather data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  location:
+                    type: string
+                    description: Location name
+                    example: "San Francisco, CA"
+                  temperature:
+                    type: number
+                    description: Current temperature
+                    example: 18.5
+                  condition:
+                    type: string
+                    description: Weather condition
+                    example: "Partly cloudy"
+                  humidity:
+                    type: number
+                    description: Humidity percentage
+                    example: 65
+                  wind_speed:
+                    type: number
+                    description: Wind speed
+                    example: 10.2
+                  timestamp:
+                    type: string
+                    format: date-time
+                    description: Data timestamp
+        '400':
+          description: Invalid request
+        '404':
+          description: Location not found
+  /forecast:
+    get:
+      summary: Get weather forecast
+      description: Get weather forecast for up to 7 days
+      operationId: getWeatherForecast
+      parameters:
+        - name: location
+          in: query
+          required: true
+          description: City name, coordinates (lat,lon), or location query
+          schema:
+            type: string
+            example: "New York"
+        - name: days
+          in: query
+          required: false
+          description: Number of forecast days (1-7)
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 7
+            default: 3
+        - name: units
+          in: query
+          required: false
+          description: Units for temperature (metric, imperial, kelvin)
+          schema:
+            type: string
+            enum: [metric, imperial, kelvin]
+            default: metric
+      responses:
+        '200':
+          description: Weather forecast data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  location:
+                    type: string
+                    description: Location name
+                  forecast:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        date:
+                          type: string
+                          format: date
+                        high_temp:
+                          type: number
+                        low_temp:
+                          type: number
+                        condition:
+                          type: string
+                        precipitation_chance:
+                          type: number
+                          minimum: 0
+                          maximum: 100
+  /alerts:
+    get:
+      summary: Get weather alerts
+      description: Get active weather alerts for a location
+      operationId: getWeatherAlerts
+      parameters:
+        - name: location
+          in: query
+          required: true
+          description: City name, coordinates (lat,lon), or location query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Active weather alerts
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  location:
+                    type: string
+                  alerts:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        title:
+                          type: string
+                        description:
+                          type: string
+                        severity:
+                          type: string
+                          enum: [minor, moderate, severe, extreme]
+                        start_time:
+                          type: string
+                          format: date-time
+                        end_time:
+                          type: string
+                          format: date-time
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer

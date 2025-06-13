@@ -1,0 +1,24 @@
+# Binaries
+aphelion
+aphelion.exe
+dist/
+
+# Go build artifacts
+*.out
+coverage.html
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Config
+.aphelion/
+
+# Dependencies
+vendor/
