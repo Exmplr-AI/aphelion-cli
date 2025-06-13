@@ -4,10 +4,23 @@ A command-line interface for interacting with the Aphelion platform, providing t
 
 ## Installation
 
+### Using Homebrew (Recommended)
+
+```bash
+brew install Exmplr-AI/tap/aphelion
+```
+
+### Using Go
+
+```bash
+go install github.com/Exmplr-AI/aphelion-cli@latest
+```
+
 ### From Source
 
-1. Clone the repository and navigate to the CLI directory:
+1. Clone the repository:
    ```bash
+   git clone https://github.com/Exmplr-AI/aphelion-cli.git
    cd aphelion-cli
    ```
 
@@ -20,6 +33,10 @@ A command-line interface for interacting with the Aphelion platform, providing t
    ```bash
    make install
    ```
+
+### Download Binary
+
+Download the latest release for your platform from the [releases page](https://github.com/Exmplr-AI/aphelion-cli/releases).
 
 ### Using Make Targets
 

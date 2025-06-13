@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/exmplrai/aphelion-cli/cmd"
+	"github.com/Exmplr-AI/aphelion-cli/cmd"
 )
 
 var (

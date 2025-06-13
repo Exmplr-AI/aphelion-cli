@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/exmplrai/aphelion-cli/pkg/api"
+	"github.com/Exmplr-AI/aphelion-cli/pkg/api"
 	"github.com/fatih/color"
 	"github.com/spf13/cobra"
 )

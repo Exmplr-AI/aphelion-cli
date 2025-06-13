@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/exmplrai/aphelion-cli/internal/config"
+	"github.com/Exmplr-AI/aphelion-cli/internal/config"
 	"github.com/fatih/color"
 	"github.com/olekukonko/tablewriter"
 	"github.com/spf13/cobra"

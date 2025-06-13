@@ -1,8 +1,9 @@
-module github.com/exmplrai/aphelion-cli
+module github.com/Exmplr-AI/aphelion-cli
 
 go 1.21
 
 require (
+	github.com/fatih/color v1.18.0
 	github.com/golang-jwt/jwt/v5 v5.2.0
 	github.com/olekukonko/tablewriter v0.0.5
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
@@ -16,7 +17,6 @@ require (
 require (
 	github.com/alessio/shellescape v1.4.1 // indirect
 	github.com/danieljoos/wincred v1.2.0 // indirect
-	github.com/fatih/color v1.18.0 // indirect
 	github.com/fsnotify/fsnotify v1.7.0 // indirect
 	github.com/godbus/dbus/v5 v5.1.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect

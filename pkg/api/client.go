@@ -9,9 +9,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/exmplrai/aphelion-cli/internal/config"
-	"github.com/exmplrai/aphelion-cli/internal/logger"
-	"github.com/exmplrai/aphelion-cli/pkg/auth"
+	"github.com/Exmplr-AI/aphelion-cli/internal/config"
+	"github.com/Exmplr-AI/aphelion-cli/internal/logger"
+	"github.com/Exmplr-AI/aphelion-cli/pkg/auth"
 )
 
 // Client represents the Aphelion API client

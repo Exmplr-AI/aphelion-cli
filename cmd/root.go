@@ -5,8 +5,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/exmplrai/aphelion-cli/internal/config"
-	"github.com/exmplrai/aphelion-cli/internal/logger"
+	"github.com/Exmplr-AI/aphelion-cli/internal/config"
+	"github.com/Exmplr-AI/aphelion-cli/internal/logger"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -43,7 +43,7 @@ Get started in seconds:
 
 No configuration needed - the CLI automatically discovers all Auth0 settings!
 
-For more information, visit: https://github.com/exmplrai/aphelion-cli`,
+For more information, visit: https://github.com/Exmplr-AI/aphelion-cli`,
 	PersistentPreRunE: func(cmd *cobra.Command, args []string) error {
 		// Initialize logger
 		if verbose {

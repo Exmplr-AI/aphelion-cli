@@ -7,7 +7,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/exmplrai/aphelion-cli/pkg/api"
+	"github.com/Exmplr-AI/aphelion-cli/pkg/api"
 	"github.com/olekukonko/tablewriter"
 	"github.com/spf13/cobra"
 )

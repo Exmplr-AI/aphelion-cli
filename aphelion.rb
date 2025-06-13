@@ -1,9 +1,9 @@
 class Aphelion < Formula
   desc "Command-line interface for Aphelion Gateway"
-  homepage "https://github.com/exmplrai/aphelion-cli"
-  url "https://github.com/exmplrai/aphelion-cli/archive/v#{version}.tar.gz"
+  homepage "https://github.com/Exmplr-AI/aphelion-cli"
+  url "https://github.com/Exmplr-AI/aphelion-cli/archive/v#{version}.tar.gz"
   license "MIT"
-  head "https://github.com/exmplrai/aphelion-cli.git", branch: "main"
+  head "https://github.com/Exmplr-AI/aphelion-cli.git", branch: "main"
 
   depends_on "go" => :build
 
