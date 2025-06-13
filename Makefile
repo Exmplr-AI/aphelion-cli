@@ -89,6 +89,13 @@ release: build-all
 	tar -czf dist/archives/$(BINARY_NAME)-$(VERSION)-darwin-arm64.tar.gz -C dist $(BINARY_NAME)-darwin-arm64
 	zip -j dist/archives/$(BINARY_NAME)-$(VERSION)-windows-amd64.zip dist/$(BINARY_NAME)-windows-amd64.exe
 
+# Tag and push a new release
+.PHONY: tag
+tag:
+	@if [ -z "$(VERSION)" ]; then echo "VERSION is required. Usage: make tag VERSION=v1.0.0"; exit 1; fi
+	git tag -a $(VERSION) -m "Release $(VERSION)"
+	git push origin $(VERSION)
+
 # Development workflow
 .PHONY: dev
 dev: deps fmt lint test build
@@ -107,5 +114,6 @@ help:
 	@echo "  clean       - Clean build artifacts"
 	@echo "  install     - Install binary to /usr/local/bin"
 	@echo "  release     - Create release archives"
+	@echo "  tag         - Tag and push a new release (requires VERSION=vX.Y.Z)"
 	@echo "  dev         - Run full development workflow"
 	@echo "  help        - Show this help message"
